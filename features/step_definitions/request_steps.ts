@@ -1,6 +1,7 @@
 import { Given, Then, When, AfterAll } from "@cucumber/cucumber";
 import { expect } from "chai";
 import { World } from "../support/world";
+import tracer from "../support/tracer";
 
 import { fixKeys, pathLookup } from "../support/templating";
 import { Store } from "../support/store";
@@ -175,7 +176,13 @@ Then(
   }
 );
 
-AfterAll( function (this: World) {
+AfterAll(function (this: World) {
+  try {
+    (tracer as any)._tracer._exporter._writer.flush();
+  } catch (error) {
+    console.log(error);
+  }
+
   let dd_service = process.env.DD_SERVICE;
   let ci_pipeline_id = process.env.GITHUB_RUN_ID;
   if (dd_service !== undefined && ci_pipeline_id !== undefined) {
