@@ -135,6 +135,14 @@ let params: v2.SecurityMonitoringApiCreateSecurityMonitoringRuleRequest = {
         forgetAfter: 1,
         learningDuration: 0,
       },
+      thirdPartyOptions: {
+        defaultNotifications: ["defaultNotifications_example"],
+        defaultStatus: "critical",
+        firstSeenOverride: "firstSeenOverride_example",
+        lastSeenOverride: "lastSeenOverride_example",
+        rootQuery: "rootQuery_example",
+        signalId: "signalId_example",
+      },
     },
     queries: [],
     tags: ["env:prod", "team:security"],
@@ -816,6 +824,14 @@ let params: v2.SecurityMonitoringApiUpdateSecurityMonitoringRuleRequest = {
       newValueOptions: {
         forgetAfter: 1,
         learningDuration: 0,
+      },
+      thirdPartyOptions: {
+        defaultNotifications: ["defaultNotifications_example"],
+        defaultStatus: "critical",
+        firstSeenOverride: "firstSeenOverride_example",
+        lastSeenOverride: "lastSeenOverride_example",
+        rootQuery: "rootQuery_example",
+        signalId: "signalId_example",
       },
     },
     queries: [
